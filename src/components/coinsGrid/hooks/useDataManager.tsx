@@ -56,7 +56,7 @@ export const useDataManager = (userCoins: string[], isUserCoins: boolean) => {
 
   const { data } = useGetCoinsByIdQuery(
     userCoins.toString().replaceAll(",", "%2C"),
-    { pollingInterval: 5000 }
+    { pollingInterval: 5 * 60 * 1000 }
   );
 
   const rows = isUserCoins && userCoins?.length === 0 ? [] : data;
